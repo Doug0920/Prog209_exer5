@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Doug Cottrill, PROG 209 1-28-18
+      A modification of DOM Color tweaker, to change a box color to input RGB. -->
+	<meta charset="utf-8">
+	<title>Show Your Colors</title>
+	<style>
+		body {
+			font-family:"sans-serif;
+			margin:40px;
+			font-size: 100%;
+		}
+		div:first-child {
+			margin-bottom: 20px;
+		}
+		button {
+			padding: 10px;
+		}
+		#colorbox {
+			width: 800px;
+			height: 550px;
+			margin-left: 30px;
+		}
+		#inputbox {
+			background-color: #F0F0F0;
+			width: 600px;
+			height: 300px;
+			margin: 100px;
+		}
+	
+	</style>
+</head>
+<body>
+	<div>
+		Choose decimal R, G, B values to create a box color
+	</div>
+	<div id="colorbox">
+		<br />
+		<div id="inputbox">
+		Enter decimal R, G, B of 0--255:
+		R: <input type="input" id="rval" size="3">
+		G: <input type="input" id="gval" size="3">
+		B: <input type="input" id="bval" size="3">
+			<button id="btn">Click me!</button>
+		</div>
+	</div>
+	<script>
+		
+	let btn = document.getElementById("btn");
+	let colorbox = document.getElementById("colorbox");
+	btn.addEventListener("click", btnClickHandler, false);
+		
+	function btnClickHandler() {
+		//  verify numeric values in range 0-255, then change to use color for outer div
+
+
+		var rval=document.getElementById("rval").value;
+		var gval=document.getElementById("gval").value;
+		var bval=document.getElementById("bval").value;
+		rval = parseInt(rval);
+		gval = parseInt(gval);
+		bval = parseInt(bval);
+		if (isNaN(rval) || isNaN(gval) || isNaN(bval){
+			alert("please enter only decimal numbers 0 through 255");
+		}
+		else {
+			colorbox.style.backgroundColor = "rgb(" + rval+ "," + gval+ "," + bval+ ")";
+		}
+	}	
+	</script>
+</body>
+</html>
