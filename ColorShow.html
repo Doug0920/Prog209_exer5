@@ -42,31 +42,40 @@
 		R: <input type="input" id="rval" size="3">
 		G: <input type="input" id="gval" size="3">
 		B: <input type="input" id="bval" size="3">
-			<button id="btn">Click me!</button>
+			<button id="btn">Show me!</button>
+			<button id="resetbtn">Reset</button>
 		</div>
 	</div>
 	<script>
 		
 	let btn = document.getElementById("btn");
+	let resetbtn = document.getElementById("resetbtn");
 	let colorbox = document.getElementById("colorbox");
 	btn.addEventListener("click", btnClickHandler, false);
+	resetbtn.addEventListener("click", resetClickHandler, false);
 		
 	function btnClickHandler() {
 		//  verify numeric values in range 0-255, then change to use color for outer div
-
-
 		var rval=document.getElementById("rval").value;
 		var gval=document.getElementById("gval").value;
 		var bval=document.getElementById("bval").value;
 		rval = parseInt(rval);
 		gval = parseInt(gval);
 		bval = parseInt(bval);
-		if (isNaN(rval) || isNaN(gval) || isNaN(bval){
+		if (isNaN(rval) || isNaN(gval) || isNaN(bval)) {
 			alert("please enter only decimal numbers 0 through 255");
 		}
 		else {
 			colorbox.style.backgroundColor = "rgb(" + rval+ "," + gval+ "," + bval+ ")";
 		}
+	}	
+	
+	function resetClickHandler() {
+		//  reset box color, clear numeric fields
+		document.getElementById("rval").value = "";
+		document.getElementById("gval").value = "";
+		document.getElementById("bval").value = "";
+		colorbox.style.backgroundColor = "rgb(255,255,255)";
 	}	
 	</script>
 </body>
